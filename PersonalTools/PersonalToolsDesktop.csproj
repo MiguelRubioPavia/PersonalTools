@@ -4,11 +4,12 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
+    <AssemblyName>PersonalToolsDesktop</AssemblyName>
+    <RootNamespace>PersonalToolsDesktop</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Panels\FinanceContent\" />
-    <Folder Include="Panels\HomeContent\" />
+    <PackageReference Include="FontAwesome5" Version="2.1.0" />
   </ItemGroup>
 
 </Project>
