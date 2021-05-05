@@ -4,21 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PersonalTools"
-        xmlns:pnl="clr-namespace:PersonalToolsDesktop.Panels"
+        xmlns:pnl="clr-namespace:PersonalToolsDesktop.Containers"
+        xmlns:fa="http://schemas.fontawesome.com/icons/"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <TabControl TabStripPlacement="Left">
         <TabItem>
             <TabItem.Header>
-                Home
+                <fa:SvgAwesome Icon="Solid_Home" Height="50" />
             </TabItem.Header>
-            <pnl:HomePanel />
+            <pnl:HomeContainer />
         </TabItem>
         <TabItem>
             <TabItem.Header>
                 Finances
             </TabItem.Header>
-            <pnl:FinancesPanel />
+            <pnl:FinancesContainer />
         </TabItem>
     </TabControl>
 </Window>

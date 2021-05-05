@@ -7,8 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Panels\FinanceContent\" />
-    <Folder Include="Panels\HomeContent\" />
+    <Folder Include="Containers\HomeContent\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FontAwesome5" Version="2.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CustomControls\CustomControls.csproj" />
   </ItemGroup>
 
 </Project>

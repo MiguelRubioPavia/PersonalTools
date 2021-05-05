@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PersonalToolsDesktop.Panels
+namespace PersonalTools.Containers.FinancesContent
 {
     /// <summary>
-    /// Lógica de interacción para FinancesPanel.xaml
+    /// Lógica de interacción para FinancesList.xaml
     /// </summary>
-    public partial class FinancesPanel : UserControl
+    public partial class FinancesList : UserControl
     {
-        public FinancesPanel()
+        public FinancesList()
         {
             InitializeComponent();
         }
