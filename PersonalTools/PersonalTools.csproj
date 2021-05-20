@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Containers\HomeContent\" />
+    <Folder Include="Views\HomeContent\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CustomControls\CustomControls.csproj" />
+    <ProjectReference Include="..\Model\Model.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Model;
+using Model.Entities;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,14 +16,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PersonalTools.Containers.FinancesContent
+namespace PersonalTools.Views.FinancesContent
 {
     /// <summary>
     /// Lógica de interacción para FinancesCreation.xaml
     /// </summary>
-    public partial class FinancesCreation : UserControl
+    public partial class FinancesCreationView : UserControl
     {
-        public FinancesCreation()
+        public FinancesCreationView(DataContext dataContext, int? id = null)
         {
             InitializeComponent();
         }

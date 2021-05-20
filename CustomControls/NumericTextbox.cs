@@ -15,6 +15,21 @@ namespace CustomControls
         private string _decimalSeparator { get => CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator; }
         private string _thousandSeparator { get => CultureInfo.CurrentCulture.NumberFormat.NumberGroupSeparator; }
 
+        public decimal? Value
+        {
+            get
+            {
+                if (decimal.TryParse(Text, out decimal result))
+                    return result;
+                else
+                    return null;
+            }
+            set
+            {
+                Text = value?.ToString();
+            }
+        }
+
         public NumericTextbox() : base()
         {
             CommandBinding command = new CommandBinding
@@ -91,7 +106,7 @@ namespace CustomControls
 
         protected override void OnPreviewKeyDown(KeyEventArgs e)
         {
-            e.Handled = e.Key == Key.Space || e.Key == Key.Tab;
+            e.Handled = e.Key == Key.Space;
 
             base.OnPreviewKeyDown(e);
         }

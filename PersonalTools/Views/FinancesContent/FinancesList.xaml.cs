@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PersonalTools.Containers.FinancesContent
+namespace PersonalTools.Views.FinancesContent
 {
     /// <summary>
     /// Lógica de interacción para FinancesList.xaml

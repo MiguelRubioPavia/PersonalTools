@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="PersonalTools.Containers.FinancesContent.FinancesCreation"
+﻿<UserControl x:Class="PersonalTools.Views.FinancesContent.FinancesCreationView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:PersonalTools.Containers.FinancesContent"
+             xmlns:local="clr-namespace:PersonalTools.Views.FinancesContent"
              xmlns:cc="clr-namespace:CustomControls;assembly=CustomControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -30,14 +30,19 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <DatePicker Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
-        <TextBox Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="10" />
+        <DatePicker Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" SelectedDate="{Binding Path=Date}" />
+        <TextBox Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="10" Text="{Binding Path=Concept}" />
 
-        <TextBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" />
-        <TextBox Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="4" />
-        <TextBox Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="4" />
+        <ComboBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" IsEditable="True" IsReadOnly="False" ItemsSource="{Binding Source=FamilyGroups}" />
+        <ComboBox Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="4" IsEditable="True" IsReadOnly="False" />
+        <ComboBox Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="4" IsEditable="True" IsReadOnly="False" />
 
-        <cc:NumericTextbox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" />
-        <CheckBox Grid.Row="2" Grid.Column="3" Content="Desglose" />
+        <cc:NumericTextbox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding Path=Quantity, Mode=TwoWay}" />
+        <cc:NumericTextbox Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="3" Text="{Binding Path=Amount, Mode=TwoWay}" />
+        <cc:NumericTextbox Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="3" />
+        <CheckBox Grid.Row="2" Grid.Column="9" Content="Desglose" IsChecked="{Binding Path=IsBreakdown}" />
+        <Button Grid.Row="2" Grid.Column="10" Content="Save" Click="Button_Click" />
+
+        <TextBox Grid.Row="3" Grid.ColumnSpan="12" />
     </Grid>
 </UserControl>

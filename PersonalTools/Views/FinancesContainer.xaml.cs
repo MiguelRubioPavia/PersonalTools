@@ -1,4 +1,5 @@
-﻿using PersonalTools.Containers.FinancesContent;
+﻿using Model;
+using PersonalTools.Views.FinancesContent;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,31 +23,35 @@ namespace PersonalToolsDesktop.Containers
     public partial class FinancesContainer : UserControl
     {
         private Type _currentControlType;
+        private DataContext _dataContext;
 
         public FinancesContainer()
         {
             InitializeComponent();
 
-            ChangePanel(typeof(FinancesList));
+            _dataContext = new DataContext();
+
+            _currentControlType = typeof(FinancesList);
+            contentControl.Content = new FinancesList();
         }
 
         private void FinancesToolbar_OnListSelected(object sender, EventArgs e)
         {
-            ChangePanel(typeof(FinancesList));
+            contentControl.Content = new FinancesList();
         }
 
         private void FinancesToolbar_OnConfigurationSelected(object sender, EventArgs e)
         {
-            ChangePanel(typeof(FinancesCreation));
+            contentControl.Content = new FinancesCreationView(_dataContext);
         }
 
-        private void ChangePanel(Type target)
-        {
-            if (_currentControlType != target.UnderlyingSystemType)
-            {
-                _currentControlType = target;
-                contentControl.Content = target.GetConstructor(new Type[0]).Invoke(new object[0]);
-            }
-        }
+        //private bool IsCurrentPanel(Type target)
+        //{
+        //    _currentControlType = target;
+        //    return (_currentControlType != target.UnderlyingSystemType)
+        //    {
+        //        contentControl.Content = target.GetConstructor(new Type[0]).Invoke(new object[0]);
+        //    }
+        //}
     }
 }
