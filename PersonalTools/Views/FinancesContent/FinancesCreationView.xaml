@@ -41,7 +41,7 @@
         <cc:NumericTextbox Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="3" Text="{Binding Path=Amount, Mode=TwoWay}" />
         <cc:NumericTextbox Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="3" />
         <CheckBox Grid.Row="2" Grid.Column="9" Content="Desglose" IsChecked="{Binding Path=IsBreakdown}" />
-        <Button Grid.Row="2" Grid.Column="10" Content="Save" Click="Button_Click" />
+        <!--<Button Grid.Row="2" Grid.Column="10" Content="Save" Click="Button_Click" />-->
 
         <TextBox Grid.Row="3" Grid.ColumnSpan="12" />
     </Grid>

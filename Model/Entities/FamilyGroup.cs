@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.BaseClasses;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,13 +10,32 @@ using System.Threading.Tasks;
 namespace Model.Entities
 {
     [Table("FamilyGroups")]
-    public class FamilyGroup
+    public class FamilyGroup : BaseNotifyPropertyChanged
     {
-        public int FamilyGroupId { get; set; }
+        #region Properties
+        private int _FamilyGroupId;
+        public int FamilyGroupId
+        {
+            get => _FamilyGroupId;
+            set => SetField(ref _FamilyGroupId, value);
+        }
+
+        private string _Code;
         [Required]
         [MinLength(1)]
         [MaxLength(100)]
-        public string Code { get; set; }
-        public ICollection<Family> Families { get; set; }
+        public string Code
+        {
+            get => _Code;
+            set => SetField(ref _Code, value);
+        }
+
+        private ICollection<Family> _Families;
+        public virtual ICollection<Family> Families
+        {
+            get => _Families;
+            set => SetField(ref _Families, value);
+        }
+        #endregion
     }
 }

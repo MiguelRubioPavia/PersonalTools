@@ -3,6 +3,7 @@ using Model.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -19,8 +20,11 @@ namespace Model
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string path = Path.Combine(System.IO.Directory.GetCurrentDirectory(), "Database", "PersonalToolsDB.db");
-            optionsBuilder.UseSqlite($"Data Source={path}");
+#if DEBUG
+            optionsBuilder.UseSqlite(@"Data Source=C:\Users\MRMN\Documents\Projects\PersonalTools\Model\Database\PersonalToolsDB.db");
+#else
+            optionsBuilder.UseSqlite(ConfigurationManager.ConnectionStrings["sqliteConn"].ConnectionString);
+#endif
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

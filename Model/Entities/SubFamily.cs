@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.BaseClasses;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,15 +10,46 @@ using System.Threading.Tasks;
 namespace Model.Entities
 {
     [Table("SubFamilies")]
-    public class SubFamily
+    public class SubFamily : BaseNotifyPropertyChanged
     {
-        public int SubFamilyId { get; set; }
+        #region Properties
+        private int _SubFamilyId;
+        public int SubFamilyId
+        {
+            get => _SubFamilyId;
+            set => SetField(ref _SubFamilyId, value);
+        }
+
+        private string _Code;
         [Required]
         [MinLength(1)]
         [MaxLength(100)]
-        public string Code { get; set; }
-        public int FamilyId { get; set; }
-        public Family Family { get; set; }
-        public ICollection<FinanceMovement> FinanceMovements { get; set; }
+        public string Code
+        {
+            get => _Code;
+            set => SetField(ref _Code, value);
+        }
+
+        private int _FamilyId;
+        public int FamilyId
+        {
+            get => _FamilyId;
+            set => SetField(ref _FamilyId, value);
+        }
+
+        private Family _Family;
+        public virtual Family Family
+        {
+            get => _Family;
+            set => SetField(ref _Family, value);
+        }
+
+        private ICollection<FinanceMovement> _FinanceMovements;
+        public virtual ICollection<FinanceMovement> FinanceMovements
+        {
+            get => _FinanceMovements;
+            set => SetField(ref _FinanceMovements, value);
+        }
+        #endregion
     }
 }
