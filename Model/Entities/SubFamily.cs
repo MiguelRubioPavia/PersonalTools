@@ -51,5 +51,14 @@ namespace Model.Entities
             set => SetField(ref _FinanceMovements, value);
         }
         #endregion
+
+        #region Operators
+        public override string ToString() => Code;
+
+        public override bool Equals(object obj)
+            => obj != null && obj.GetType().Equals(typeof(SubFamily)) && this.SubFamilyId == ((SubFamily)obj).SubFamilyId;
+
+        public override int GetHashCode() => SubFamilyId;
+        #endregion
     }
 }

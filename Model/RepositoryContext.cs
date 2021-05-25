@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class DataContext : DbContext
+    public class RepositoryContext : DbContext
     {
         public DbSet<FamilyGroup> FamilyGroups { get; set; }
         public DbSet<Family> Families { get; set; }

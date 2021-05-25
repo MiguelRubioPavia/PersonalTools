@@ -51,5 +51,14 @@ namespace Model.Entities
             set => SetField(ref _SubFamilies, value);
         }
         #endregion
+
+        #region Operators
+        public override string ToString() => Code;
+
+        public override bool Equals(object obj)
+            => obj != null && obj.GetType().Equals(typeof(Family)) && this.FamilyId == ((Family)obj).FamilyId;
+
+        public override int GetHashCode() => FamilyId;
+        #endregion
     }
 }

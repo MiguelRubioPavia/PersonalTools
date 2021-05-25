@@ -98,5 +98,18 @@ namespace Model.Entities
             set => SetField(ref _BreakDownDetails, value);
         }
         #endregion
+
+        #region Methods
+        public static FinanceMovement FinanceMovementFactory()
+        {
+            return new FinanceMovement
+            {
+                Amount = 0,
+                Quantity = 1,
+                IsBreakdown = false,
+                Date = DateTime.Today
+            };
+        }
+        #endregion
     }
 }
