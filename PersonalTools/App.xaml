@@ -2,8 +2,9 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:PersonalTools"
+             xmlns:cnv="clr-namespace:WpfLibrary.Converters;assembly=WpfLibrary"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <cnv:DecimalConverter x:Key="decimalConverter" />
     </Application.Resources>
 </Application>

@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTesting", "UnitTesting\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{BAB3D20D-5FAA-4A99-BC85-D2FB582A451F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomControls", "CustomControls\CustomControls.csproj", "{4CBD431D-7BA3-4064-AE49-705783B5B693}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfLibrary", "CustomControls\WpfLibrary.csproj", "{4CBD431D-7BA3-4064-AE49-705783B5B693}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

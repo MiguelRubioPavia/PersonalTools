@@ -1,4 +1,5 @@
 ﻿using Model;
+using PersonalTools.ViewModels.FinancesContent;
 using PersonalTools.Views.FinancesContent;
 using System;
 using System.Collections.Generic;
@@ -23,13 +24,11 @@ namespace PersonalToolsDesktop.Containers
     public partial class FinancesContainer : UserControl
     {
         private Type _currentControlType;
-        private DataContext _dataContext;
 
         public FinancesContainer()
         {
             InitializeComponent();
 
-            _dataContext = new DataContext();
 
             _currentControlType = typeof(FinancesList);
             contentControl.Content = new FinancesList();
@@ -42,7 +41,7 @@ namespace PersonalToolsDesktop.Containers
 
         private void FinancesToolbar_OnConfigurationSelected(object sender, EventArgs e)
         {
-            contentControl.Content = new FinancesCreationView(_dataContext);
+            contentControl.Content = new FinancesCreationView(new FinancesCreationViewModel(new RepositoryManager(), 5));
         }
 
         //private bool IsCurrentPanel(Type target)

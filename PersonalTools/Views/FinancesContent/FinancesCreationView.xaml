@@ -4,9 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PersonalTools.Views.FinancesContent"
-             xmlns:cc="clr-namespace:CustomControls;assembly=CustomControls"
+             xmlns:vm="clr-namespace:PersonalTools.ViewModels.FinancesContent"
+             xmlns:uc="clr-namespace:WpfLibrary.UserControls;assembly=WpfLibrary"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" d:DataContext="{d:DesignInstance vm:FinancesCreationViewModel}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.1*" />
@@ -30,19 +31,22 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <DatePicker Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" SelectedDate="{Binding Path=Date}" />
-        <TextBox Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="10" Text="{Binding Path=Concept}" />
+        <DatePicker Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" SelectedDate="{Binding Movement.Date}" />
+        <TextBox Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="10" Text="{Binding Movement.Concept}" />
 
-        <ComboBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" IsEditable="True" IsReadOnly="False" ItemsSource="{Binding Source=FamilyGroups}" />
-        <ComboBox Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="4" IsEditable="True" IsReadOnly="False" />
-        <ComboBox Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="4" IsEditable="True" IsReadOnly="False" />
+        <ComboBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" IsEditable="True" IsReadOnly="False" 
+                  ItemsSource="{Binding FamilyGroups}" SelectedItem="{Binding SelectedFamilyGroup}" />
+        <ComboBox Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="4" IsEditable="True" IsReadOnly="False" 
+                  ItemsSource="{Binding CurrentFamilies}" SelectedItem="{Binding SelectedFamily}" />
+        <ComboBox Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="4" IsEditable="True" IsReadOnly="False" 
+                  ItemsSource="{Binding CurrentSubFamilies}" SelectedItem="{Binding Movement.SubFamily}" />
 
-        <cc:NumericTextbox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding Path=Quantity, Mode=TwoWay}" />
-        <cc:NumericTextbox Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="3" Text="{Binding Path=Amount, Mode=TwoWay}" />
-        <cc:NumericTextbox Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="3" />
-        <CheckBox Grid.Row="2" Grid.Column="9" Content="Desglose" IsChecked="{Binding Path=IsBreakdown}" />
-        <!--<Button Grid.Row="2" Grid.Column="10" Content="Save" Click="Button_Click" />-->
+        <uc:NumericTextbox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding Quantity, Converter={StaticResource decimalConverter}}" />
+        <uc:NumericTextbox Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="3" Text="{Binding Amount, Converter={StaticResource decimalConverter}}" />
+        <uc:NumericTextbox Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="3" Text="{Binding TotalAmount, Converter={StaticResource decimalConverter}}" />
+        <CheckBox Grid.Row="2" Grid.Column="9" Content="Desglose" IsChecked="{Binding Movement.IsBreakdown}" />
+        <Button Grid.Row="2" Grid.Column="10" Content="Save" Command="{Binding SaveCommand}" />
 
-        <TextBox Grid.Row="3" Grid.ColumnSpan="12" />
+        <TextBox Grid.Row="3" Grid.ColumnSpan="12" Text="{Binding Movement.Comment}" />
     </Grid>
 </UserControl>

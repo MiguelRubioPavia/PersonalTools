@@ -1,5 +1,6 @@
 ﻿using Model;
 using Model.Entities;
+using PersonalTools.ViewModels.FinancesContent;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -23,9 +24,11 @@ namespace PersonalTools.Views.FinancesContent
     /// </summary>
     public partial class FinancesCreationView : UserControl
     {
-        public FinancesCreationView(DataContext dataContext, int? id = null)
+        public FinancesCreationView(FinancesCreationViewModel viewModel)
         {
             InitializeComponent();
+
+            DataContext = viewModel;
         }
     }
 }

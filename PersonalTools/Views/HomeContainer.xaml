@@ -6,5 +6,8 @@
              xmlns:local="clr-namespace:PersonalToolsDesktop.Containers"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Background="LightGray">
+    <DockPanel VerticalAlignment="Top">
     <Label>Home</Label>
+        
+    </DockPanel>
 </UserControl>

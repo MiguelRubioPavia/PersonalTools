@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CustomControls\CustomControls.csproj" />
+    <ProjectReference Include="..\CustomControls\WpfLibrary.csproj" />
     <ProjectReference Include="..\Model\Model.csproj" />
   </ItemGroup>
 
