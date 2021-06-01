@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:PersonalTools.Views.FinancesContent"
              xmlns:vm="clr-namespace:PersonalTools.ViewModels.FinancesContent"
-             xmlns:uc="clr-namespace:WpfLibrary.UserControls;assembly=WpfLibrary"
+             xmlns:uc="clr-namespace:WpfLibrary.CustomControls;assembly=WpfLibrary"
+             xmlns:lang="clr-namespace:PersonalTools.Language;assembly=PersonalTools.Language"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" d:DataContext="{d:DesignInstance vm:FinancesCreationViewModel}">
     <Grid>
@@ -28,6 +28,8 @@
             <RowDefinition Height="0.2*" />
             <RowDefinition Height="0.2*" />
             <RowDefinition Height="0.2*" />
+            <RowDefinition Height="0.2*" />
+            <RowDefinition Height="0.2*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -41,12 +43,13 @@
         <ComboBox Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="4" IsEditable="True" IsReadOnly="False" 
                   ItemsSource="{Binding CurrentSubFamilies}" SelectedItem="{Binding Movement.SubFamily}" />
 
-        <uc:NumericTextbox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding Quantity, Converter={StaticResource decimalConverter}}" />
-        <uc:NumericTextbox Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="3" Text="{Binding Amount, Converter={StaticResource decimalConverter}}" />
-        <uc:NumericTextbox Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="3" Text="{Binding TotalAmount, Converter={StaticResource decimalConverter}}" />
-        <CheckBox Grid.Row="2" Grid.Column="9" Content="Desglose" IsChecked="{Binding Movement.IsBreakdown}" />
-        <Button Grid.Row="2" Grid.Column="10" Content="Save" Command="{Binding SaveCommand}" />
+        <uc:NumericTextbox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Text="{Binding Quantity, Converter={StaticResource decimalConverter}}" IsEnabled="{Binding Movement.IsBreakdown, Converter={StaticResource inverseBoolConverter}}" />
+        <uc:NumericTextbox Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="4" Text="{Binding Amount, Converter={StaticResource decimalConverter}}" IsEnabled="{Binding Movement.IsBreakdown, Converter={StaticResource inverseBoolConverter}}" />
+        <uc:NumericTextbox Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="4" Text="{Binding TotalAmount, Converter={StaticResource decimalConverter}}" IsEnabled="{Binding Movement.IsBreakdown, Converter={StaticResource inverseBoolConverter}}" />
 
         <TextBox Grid.Row="3" Grid.ColumnSpan="12" Text="{Binding Movement.Comment}" />
+        
+        <CheckBox Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Content="Desglose" IsChecked="{Binding Movement.IsBreakdown}" />
+        <Button Grid.Row="4" Grid.Column="10" Grid.ColumnSpan="2" Command="{Binding SaveCommand}" Content="{x:Static lang:Common.Save}" />
     </Grid>
 </UserControl>

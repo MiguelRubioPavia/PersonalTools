@@ -59,7 +59,8 @@ namespace PersonalTools.ViewModels.FinancesContent
                 if (SetField(ref _selectedFamilyGroup, value))
                 {
                     CurrentFamilies = value == null ? null : _families.Where(r => r.FamilyGroupId == value.FamilyGroupId);
-                    SelectedFamily = null;
+                    if (SelectedFamily?.FamilyGroupId != value?.FamilyGroupId)
+                        SelectedFamily = null;
                 }
             }
         }
@@ -73,7 +74,8 @@ namespace PersonalTools.ViewModels.FinancesContent
                 if (SetField(ref _selectedFamily, value))
                 {
                     CurrentSubFamilies = value == null ? null : _subFamilies.Where(r => r.FamilyId == value.FamilyId);
-                    Movement.SubFamily = null;
+                    if (Movement?.SubFamily?.FamilyId != value?.FamilyId)
+                        Movement.SubFamily = null;
                 }
             }
         }
@@ -153,6 +155,8 @@ namespace PersonalTools.ViewModels.FinancesContent
             LoadFamilies();
 
             LoadMovement(movementId);
+
+            Movement.PropertyChanged += Movement_PropertyChanged;
         }
         #endregion
 
@@ -168,7 +172,8 @@ namespace PersonalTools.ViewModels.FinancesContent
         {
             if (movementId != null)
                 Movement = _repositoryManager.FinanceMovements.FindByCondition(r => r.FinanceMovementId == movementId, true)
-                    .Include(r => r.SubFamily).ThenInclude(r => r.Family).ThenInclude(r => r.FamilyGroup).FirstOrDefault();
+                    .Include(r => r.SubFamily).ThenInclude(r => r.Family).ThenInclude(r => r.FamilyGroup)
+                    .Include(r => r.BreakDownDetails).FirstOrDefault();
 
             if (Movement == null)
             {
@@ -189,6 +194,16 @@ namespace PersonalTools.ViewModels.FinancesContent
         private void Save()
         {
             _repositoryManager.SaveChanges();
+        }
+
+        private void Movement_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(FinanceMovement.IsBreakdown) && Movement.IsBreakdown)
+            {
+                Quantity = 1;
+                Amount = Movement.BreakDownDetails.Sum(r => r.Quantity * r.Amount);
+            }
+            string s = PersonalTools.Language.Common.Save;
         }
         #endregion
     }

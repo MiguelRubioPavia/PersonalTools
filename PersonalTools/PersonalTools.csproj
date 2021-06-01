@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CustomControls\WpfLibrary.csproj" />
     <ProjectReference Include="..\Model\Model.csproj" />
+    <ProjectReference Include="..\PersonalTools.Language\PersonalTools.Language.csproj" />
   </ItemGroup>
 
 </Project>

@@ -6,5 +6,6 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <cnv:DecimalConverter x:Key="decimalConverter" />
+        <cnv:InverseBoolConverter x:Key="inverseBoolConverter" />
     </Application.Resources>
 </Application>
