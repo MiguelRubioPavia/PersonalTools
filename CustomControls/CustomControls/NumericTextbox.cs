@@ -8,12 +8,12 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace WpfLibrary.UserControls
+namespace WpfLibrary.CustomControls
 {
     public class NumericTextbox : TextBox
     {
-        private string _decimalSeparator { get => "."; /*CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator*/ }
-        private string _thousandSeparator { get => ","; /*CultureInfo.CurrentCulture.NumberFormat.NumberGroupSeparator*/ }
+        private string _decimalSeparator { get => CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator; }
+        private string _thousandSeparator { get => CultureInfo.CurrentCulture.NumberFormat.NumberGroupSeparator; }
 
         public decimal? Value
         {
