@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfLibrary", "CustomControls\WpfLibrary.csproj", "{4CBD431D-7BA3-4064-AE49-705783B5B693}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalTools.Language", "PersonalTools.Language\PersonalTools.Language.csproj", "{704B4314-8A1E-4DD1-86DD-8E97DBDB067E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{4CBD431D-7BA3-4064-AE49-705783B5B693}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CBD431D-7BA3-4064-AE49-705783B5B693}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CBD431D-7BA3-4064-AE49-705783B5B693}.Release|Any CPU.Build.0 = Release|Any CPU
+		{704B4314-8A1E-4DD1-86DD-8E97DBDB067E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{704B4314-8A1E-4DD1-86DD-8E97DBDB067E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{704B4314-8A1E-4DD1-86DD-8E97DBDB067E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{704B4314-8A1E-4DD1-86DD-8E97DBDB067E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
