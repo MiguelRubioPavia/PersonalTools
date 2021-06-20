@@ -13,7 +13,27 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfLibrary", "CustomControls\WpfLibrary.csproj", "{4CBD431D-7BA3-4064-AE49-705783B5B693}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalTools.Language", "PersonalTools.Language\PersonalTools.Language.csproj", "{704B4314-8A1E-4DD1-86DD-8E97DBDB067E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonalTools.Language", "PersonalTools.Language\PersonalTools.Language.csproj", "{704B4314-8A1E-4DD1-86DD-8E97DBDB067E}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Web", "..\PersonalTools\Web\", "{403B3FD3-4696-415F-9B1C-855775F1E9F4}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_63181"
+		Debug.AspNetCompiler.PhysicalPath = "..\PersonalTools\Web\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_63181\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_63181"
+		Release.AspNetCompiler.PhysicalPath = "..\PersonalTools\Web\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_63181\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "63181"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +65,10 @@ Global
 		{704B4314-8A1E-4DD1-86DD-8E97DBDB067E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{704B4314-8A1E-4DD1-86DD-8E97DBDB067E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{704B4314-8A1E-4DD1-86DD-8E97DBDB067E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{403B3FD3-4696-415F-9B1C-855775F1E9F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{403B3FD3-4696-415F-9B1C-855775F1E9F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{403B3FD3-4696-415F-9B1C-855775F1E9F4}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{403B3FD3-4696-415F-9B1C-855775F1E9F4}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
